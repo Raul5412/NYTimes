@@ -2,13 +2,10 @@ package edu.itesm.nytimes
 
 import android.os.Bundle
 import android.util.Log
-import android.widget.ImageView
-import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.bumptech.glide.Glide
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -26,7 +23,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         manager = LinearLayoutManager(this)
-        Toast.makeText(this,"ON CREATE", Toast.LENGTH_SHORT).show();
+        Toast.makeText(this, "ON CREATE", Toast.LENGTH_SHORT).show();
         getAllData()
     }
 
@@ -64,6 +61,36 @@ class MainActivity : AppCompatActivity() {
                 }
             }
         }
+    }
+
+    override fun onStart() {
+        super.onStart()
+        Toast.makeText(this@MainActivity, "ON START", Toast.LENGTH_SHORT).show()
+    }
+
+    override fun onResume() {
+        super.onResume()
+        Toast.makeText(this@MainActivity, "ON RESUME", Toast.LENGTH_SHORT).show()
+    }
+
+    override fun onPause() {
+        super.onPause()
+        Toast.makeText(this@MainActivity, "ON PAUSE", Toast.LENGTH_SHORT).show()
+    }
+
+    override fun onRestart() {
+        super.onRestart()
+        Toast.makeText(this@MainActivity, "ON RESTART", Toast.LENGTH_SHORT).show()
+    }
+
+    override fun onStop() {
+        super.onStop()
+        Toast.makeText(this@MainActivity, "ON STOP", Toast.LENGTH_SHORT).show()
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        Toast.makeText(this@MainActivity, "ON DESTROY", Toast.LENGTH_SHORT).show()
     }
 
 }
